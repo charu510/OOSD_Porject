@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class = "center-align">Welcome to the cleaner registration form</h1>
+    {% if success %}
+    <p>Form submitted successfully</p>
+    {% endif %}
+    <form action="" method="POST" class="col s12">
+        {% csrf_token %}
+        <div class="input-field col s6">
+            <input type="text" name="cleaner_name" placeholder="Cleaner Name"><br>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="address" placeholder="Address"></textarea>
+            </div>
+        </div>
+       
+        <div class="input-field col s6">
+            <input type="text" name="phone_number" placeholder="8888888888"  maxlength="10"  title="Ten digits code" required/><br>
+        </div>
+        <div class="input-field col s6">
+            <input type="number" name="hours_worked" min="1" max="6"><br>
+        </div>
+        
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+{% endblock %}
+
+{% block script %}
+<script>
+$(document).ready(function() {
+    M.updateTextFields();
+  });
+      
+</script>
+
+{% endblock %}
