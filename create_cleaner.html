@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class = "center-align">Welcome to the cleaner registration form</h1>
+    {% if success %}
+    <p>Form submitted successfully</p>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="cleaner_name" placeholder="Cleaner Name"><br><br>
+        <textarea name="address" placeholder="Address"></textarea><br><br>
+        <input type="text" name="phone_number" placeholder="8888888888"  maxlength="10"  title="Ten digits code" required/><br><br>
+        <input type="number" name="hours_worked" min="1" max="6"><br><br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+{% endblock %}
